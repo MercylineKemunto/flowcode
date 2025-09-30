@@ -1,0 +1,67 @@
+{
+  "name": "flowcode-tracker",
+  "displayName": "FlowCode Time Tracker",
+  "description": "Automatically track coding time and sync with FlowCode app",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "flowcode.syncTime",
+        "title": "Sync Coding Time to FlowCode"
+      },
+      {
+        "command": "flowcode.viewStats",
+        "title": "View Today's Coding Stats"
+      },
+      {
+        "command": "flowcode.configure",
+        "title": "Configure FlowCode Integration"
+      }
+    ],
+    "configuration": {
+      "title": "FlowCode Tracker",
+      "properties": {
+        "flowcode.apiUrl": {
+          "type": "string",
+          "default": "https://coding-streak-tracke-fjel.bolt.host",
+          "description": "FlowCode app URL"
+        },
+        "flowcode.userId": {
+          "type": "string",
+          "default": "user-1",
+          "description": "Your FlowCode user ID"
+        },
+        "flowcode.autoSync": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically sync coding time every hour"
+        },
+        "flowcode.minSessionTime": {
+          "type": "number",
+          "default": 5,
+          "description": "Minimum minutes of activity to count as coding session"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}

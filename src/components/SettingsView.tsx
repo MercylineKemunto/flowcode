@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Save, Settings as SettingsIcon, Mail, Target, Calendar } from 'lucide-react';
 import toast from 'react-hot-toast';
+import VSCodeIntegration from './VSCodeIntegration';
 
 interface SettingsViewProps {
   user: any;
@@ -247,6 +248,11 @@ export default function SettingsView({ user, onUpdateSettings }: SettingsViewPro
             </div>
           </div>
         </div>
+      </div>
+
+      {/* VS Code Integration */}
+      <div className="mt-8">
+        <VSCodeIntegration user={user} />
       </div>
 
       <div className="mt-8 flex justify-end">
